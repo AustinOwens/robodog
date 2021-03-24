@@ -156,7 +156,7 @@ class HBMotorConfig:
             
             sys.exit(1)
 
-        if self.odrv_axis.motor.config.phase_inductance <= self.MIN_PHASE_RESISTANCE or \
+        if self.odrv_axis.motor.config.phase_resistance <= self.MIN_PHASE_RESISTANCE or \
         self.odrv_axis.motor.config.phase_resistance >= self.MAX_PHASE_RESISTANCE:
             print("Error: After odrive motor calibration, the phase resistance "
             "is at {}, which is outside of the expected range. Either raise the "
