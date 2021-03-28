@@ -19,6 +19,9 @@ class HBMotorConfig:
     Only works with one Odrive at a time.
     """
     
+    # Hoverboard Kv
+    HOVERBOARD_KV = 16.0
+        
     # Min/Max phase inductance of motor
     MIN_PHASE_INDUCTANCE = 0
     MAX_PHASE_INDUCTANCE = 0.001
@@ -82,7 +85,7 @@ class HBMotorConfig:
         # Estimated KV but should be measured using the "drill test", which can
         # be found here:
         # https://discourse.odriverobotics.com/t/project-hoverarm/441
-        self.odrv_axis.motor.config.torque_constant = 8.27
+        self.odrv_axis.motor.config.torque_constant = 8.27 / self.HOVERBOARD_KV
 
         # Hoverboard motors contain hall effect sensors instead of incremental 
         # encorders
