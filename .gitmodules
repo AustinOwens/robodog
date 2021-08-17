@@ -1,0 +1,10 @@
+[submodule "zybo_z7-20/u-boot-xlnx"]
+	path = zybo_z7-20/u-boot-xlnx
+	url = https://github.com/Xilinx/u-boot-xlnx.git
+[submodule "zybo_z7-20/linux-xlnx"]
+	path = zybo_z7-20/linux-xlnx
+	url = https://github.com/Xilinx/linux-xlnx
+[submodule "zybo_z7-20/poky"]
+	path = zybo_z7-20/poky
+	url = git://git.yoctoproject.org/poky.git
+	branch = zeus
