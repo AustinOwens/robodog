@@ -1,7 +1,0 @@
-//arch = zynq; split = false; format = BIN
-the_ROM_image:
-{
-	[bootloader]/home/austin/robodog/zybo_z7-20/vitis_2020_2/zybo_z7-20/export/zybo_z7-20/sw/zybo_z7-20/boot/fsbl.elf
-	/home/austin/robodog/zybo_z7-20/vitis_2020_2/robodog_app/_ide/bitstream/design_1_wrapper.bit
-	/home/austin/robodog/zybo_z7-20/u-boot-xlnx/u-boot.elf
-}
