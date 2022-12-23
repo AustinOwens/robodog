@@ -1,3 +1,6 @@
+# Gutentags vim plugin
+tags*
+
 # Ecliplse environment
 .project
 .pydevproject
