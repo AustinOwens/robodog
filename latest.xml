@@ -4,7 +4,7 @@
     <remote name="yocto" fetch="https://git.yoctoproject.org" revision="langdale"/>  
     <remote name="xilinx" fetch="https://github.com/Xilinx" revision="langdale"/>  
     
-    <default remote="austinowens" revision="langdale" sync-j="4"/>
+    <default remote="austinowens" revision="langdale-next" sync-j="4"/>
 
     <project name="docker_yocto" path="."/>
     <project name="poky" remote="yocto" path="workspace/poky"/>

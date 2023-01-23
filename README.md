@@ -20,7 +20,7 @@ Current progress for the RoboDog build can be found on the [RoboDog Playlist](ht
 I am doing this completely on my free time so if you support what I'm doing, subscribe to my YouTube channel and share my videos with anyone you think would be interested. I appreciate the support! :heart:
 
 ## WHAT'S IN THIS REPO
-To promote better version control practices, dependency management, and extensibility of the robodog project, different elements of the RoboDog software are stored in their own repositories. These software repositories are modular in nature and can be repurposed for other projects if desired.
+To promote better version control practices, dependency management, and extensibility of the RoboDog project, different elements of the RoboDog software are stored in their own repositories. These software repositories are modular in nature and can be repurposed for other projects if desired.
 
 Google's [git-repo](https://gerrit.googlesource.com/git-repo) tool is used to help manage the different combinations and revisions of repositories together in this RoboDog repo. Here are some useful write-ups for learning about the git-repo tool: 
  - https://gerrit.googlesource.com/git-repo
@@ -74,8 +74,10 @@ More information on `keychain` or how to store your keys with other SSH agents c
 ### Downloading RoboDog Repos
 The RoboDog repo contains different manifest files depending on what elements of the RoboDog project you want to clone:
 
-- `latest.xml` - Specifies the tip of each repository in a project. These aren’t guaranteed to work and may contain combinations of repositories at revisions that have not been tested together.
 - `default.xml` - Specifies specific revisions from each repository. These combinations of revisions should always work with one another assuming the correct build configurations are used.
+- `latest.xml` - Specifies the bleeding edge for the branch that this file is in. For example, if `latest.xml` is in the langdale branch, it will pull other repos from langdale-next, main, etc. These aren’t guaranteed to work and may contain combinations of repositories at revisions that have not been fully tested together.
+
+The branches used in the RoboDog repo match the [Yocto projects](https://github.com/yoctoproject/poky) branching scheme. This is because the RoboDog project heavily leverages the Yocto project and having similar naming conventions make it easy to check which branches of the RoboDog project is compatible with which branches of the Yocto project.
 
 #### Step 1 - Make a project directory
 ```
@@ -84,14 +86,15 @@ cd ~/robodog_project
 ```
 
 #### Step 2 - Initialize your project directory
-To initialize your project directory to get the HEAD revision of every repo, use the `latest.xml` manifest file:
+To initialize your project directory to get the stable version of the RoboDog project:
+
 ```
-repo init -u https://github.com/AustinOwens/robodog.git -b langdale -m latest.xml
+repo init -u https://github.com/AustinOwens/robodog.git -b langdale
 ```
 
-To initialize your project directory to get the latest stable revision of every repo that's been tested with one another, omit the -m flag (`default.xml` is used by default in this case):
+To initialize your project directory to get the bleeding edge for the RoboDog project, use the `latest.xml` manifest file:
 ```
-repo init -u https://github.com/AustinOwens/robodog.git
+repo init -u https://github.com/AustinOwens/robodog.git -b langdale -m latest.xml
 ```
 
 #### Step 3 - Sync your project directory with all the repos specified by the manifest file
@@ -102,7 +105,7 @@ repo sync
 #### Step 4 (optional) - Start local branches for development
 By default, all repos will be in a detached state that matches the revision as specified in the manifest file. 
 
-To checkout or create a new a local branch for development for all repos, issue the following command:
+You can use git how you would expect in all repos that have been downloaded. Due to the number of repos that may be checked out, repo offers a convenient command to checkout or create a new a local branch for development for all repos:
 ```
 repo start --all <branch_name>
 ```
@@ -123,7 +126,7 @@ Where `<user_name>` is the username you want to create inside the docker contain
 
 #### Step 6 - Prepare and run Yocto build
 
-To prepare the shell environment, run the following command:
+To prepare the shell environment and build the robodog-image for the Zybo Z7-20, run the following command:
 ```
 source build.sh
 ```
