@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <remote name="austintronics"  fetch="https://github.com/AustinOwens"/>
+    <remote name="yocto" fetch="https://git.yoctoproject.org" revision="langdale"/>  
+    <remote name="xilinx" fetch="https://github.com/Xilinx" revision="langdale"/>  
+    
+    <default remote="austintronics" revision="langdale" sync-j="4"/>
+
+    <project name="docker_yocto" path="."/>
+    <project name="poky" remote="yocto" path="workspace/poky"/>
+    <project name="meta-xilinx" remote="xilinx" path="workspace/poky/meta-xilinx"/>
+    <project name="meta-xilinx-tools" remote="xilinx" path="workspace/poky/meta-xilinx-tools"/>
+    <project name="meta-robodog" path="workspace/poky/meta-robodog"/>
+    <project name="zed_cam_stereo_vision" revision="main" path="workspace/misc/zed_cam_stereo_vision"/>
+    <project name="machine_vision_server" revision="main" path="workspace/zybo_z7-20/apps/machine_vision_server"/>
+    <project name="zybo_z7-20_fpga_led_switch_test" revision="main" path="workspace/zybo_z7-20/fpga/led_switch_test"/>
+    <project name="zybo_z7-20_fpga_hdmi_test" revision="main" path="workspace/zybo_z7-20/fpga/hdmi_test"/>
+</manifest>
