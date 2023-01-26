@@ -75,7 +75,7 @@ More information on `keychain` or how to store your keys with other SSH agents c
 The RoboDog repo contains different manifest files depending on what elements of the RoboDog project you want to clone:
 
 - `default.xml` - Specifies specific revisions from each repository. These combinations of revisions should always work with one another assuming the correct build configurations are used.
-- `latest.xml` - Specifies the bleeding edge for the branch that this file is in. For example, if `latest.xml` is in the langdale branch, it will pull other repos from langdale-next, main, etc. These aren’t guaranteed to work and may contain combinations of repositories at revisions that have not been fully tested together.
+- `latest.xml` - Specifies the bleeding edge for the branch that this file is in. For example, if `latest.xml` is in the langdale branch, it will pull other repos from langdale-next. These aren’t guaranteed to work and may contain code/configurations that have not been fully tested together.
 
 The branches used in the RoboDog repo match the [Yocto projects](https://github.com/yoctoproject/poky) branching scheme. This is because the RoboDog project heavily leverages the Yocto project and having similar naming conventions make it easy to check which branches of the RoboDog project is compatible with which branches of the Yocto project.
 
