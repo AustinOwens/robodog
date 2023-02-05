@@ -11,8 +11,9 @@
     <project name="meta-xilinx" remote="xilinx" path="workspace/poky/meta-xilinx"/>
     <project name="meta-xilinx-tools" remote="xilinx" path="workspace/poky/meta-xilinx-tools"/>
     <project name="meta-robodog" path="workspace/poky/meta-robodog"/>
-    <project name="zed_cam_stereo_vision" path="workspace/misc/zed_cam_stereo_vision"/>
-    <project name="machine_vision_server" path="workspace/zybo_z7-20/apps/machine_vision_server"/>
-    <project name="zybo_z7-20_fpga_led_switch_test" path="workspace/zybo_z7-20/fpga/led_switch_test"/>
-    <project name="zybo_z7-20_fpga_hdmi_test" path="workspace/zybo_z7-20/fpga/hdmi_test"/>
+    <project name="zybo_z7-20_hdmi_to_ps_ref_design" path="workspace/ref_designs/zybo_z7-20_hdmi_to_ps_ref_design"/>
+    <project name="zybo_z7-20_hdmi_echo_ref_design" path="workspace/ref_designs/zybo_z7-20_hdmi_echo_ref_design"/>
+    <project name="zybo_z7-20_led_switch_ref_design" path="workspace/ref_designs/zybo_z7-20_led_switch_ref_design"/>
+    <project name="machine_vision_server" path="workspace/ref_designs/machine_vision_server"/>
+    <project name="zed_cam_stereo_vision" path="workspace/ref_designs/zed_cam_stereo_vision"/>
 </manifest>
