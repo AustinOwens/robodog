@@ -117,7 +117,7 @@ repo sync -d
 
 #### Step 5 - Build and run the Docker container
 ```
-docker build --build-arg USERNAME=<user_name> -t yocto-img .
+docker build --build-arg USERNAME=<user_name> --build-arg UID="$(id -u)" -t yocto-img .
 ./docker.run -u <user_name> -s $(pwd)/workspace -i yocto-img
 sudo chown -R <user_name> workspace # Where the password is <user_name>
 ```

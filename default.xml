@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
     <remote name="austinowens" fetch="https://github.com/AustinOwens"/>
-    <remote name="yocto" fetch="https://git.yoctoproject.org" revision="langdale"/>  
-    <remote name="xilinx" fetch="https://github.com/Xilinx" revision="langdale"/>  
+    <remote name="yocto" fetch="https://git.yoctoproject.org" revision="langdale"/>
+    <remote name="openembedded" fetch="https://git.openembedded.org" revision="langdale"/>
+    <remote name="xilinx" fetch="https://github.com/Xilinx" revision="langdale"/>
     
     <default remote="austinowens" revision="langdale" sync-j="4"/>
 
     <project name="docker_yocto" path="."/>
     <project name="poky" remote="yocto" path="workspace/poky"/>
+    <project name="meta-openembedded" remote="openembedded" path="workspace/poky/meta-openembedded"/>
     <project name="meta-xilinx" remote="xilinx" path="workspace/poky/meta-xilinx"/>
     <project name="meta-xilinx-tools" remote="xilinx" path="workspace/poky/meta-xilinx-tools"/>
     <project name="meta-robodog" path="workspace/poky/meta-robodog"/>
