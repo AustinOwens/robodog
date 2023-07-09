@@ -72,10 +72,11 @@ More information on `keychain` or how to store your keys with other SSH agents c
 
 
 ### Downloading RoboDog Repos
-The RoboDog repo contains different manifest files depending on what elements of the RoboDog project you want to clone:
+The RoboDog repo currently contains one manifest file:
 
-- `default.xml` - Specifies specific revisions from each repository. These combinations of revisions should always work with one another assuming the correct build configurations are used.
-- `latest.xml` - Specifies the bleeding edge for the branch that this file is in. For example, if `latest.xml` is in the langdale branch, it will pull other repos from langdale-next. These aren’t guaranteed to work and may contain code/configurations that have not been fully tested together.
+- `default.xml` - The default manifest file that's used if no manifest file is provided to the `repo init` command (shown below). This particular manifest file grabs the latest code on each branch for all repositories that make up the RoboDog project. For example, if you are using the `langdale` branch, then the latest code on the `langdale` branch will be used from all repositories that make up the RoboDog project.  
+
+When the RoboDog project becomes a little more mature, I will add other manifest files that point to specific hashes across all the repositories that make up the RoboDog project. This will ensure that if there are code-breaking changes that get pushed to the branch, the manifest files that contained specific hashes would still be stable since it will not be pulling the latest code on any repositories branch.
 
 The branches used in the RoboDog repo match the [Yocto projects](https://github.com/yoctoproject/poky) branching scheme. This is because the RoboDog project heavily leverages the Yocto project and having similar naming conventions make it easy to check which branches of the RoboDog project is compatible with which branches of the Yocto project.
 
@@ -86,15 +87,10 @@ cd ~/robodog_project
 ```
 
 #### Step 2 - Initialize your project directory
-To initialize your project directory to get the stable version of the RoboDog project:
+To initialize your project directory with the `default.xml` manifest file:
 
 ```
 repo init -u https://github.com/AustinOwens/robodog.git -b langdale
-```
-
-To initialize your project directory to get the bleeding edge for the RoboDog project, use the `latest.xml` manifest file:
-```
-repo init -u https://github.com/AustinOwens/robodog.git -b langdale -m latest.xml
 ```
 
 #### Step 3 - Sync your project directory with all the repos specified by the manifest file
@@ -115,11 +111,15 @@ To set back all repos to their detached state as specified in the manifest file,
 repo sync -d
 ```
 
+NOTE: The `repo` tool does NOT replace `git`. You can still use `git` like normal in each repository. The `repo` tool simply helps you manage multiple git repositories at the same time.
+
 #### Step 5 - Build and run the Docker container
 ```
 docker build --build-arg USERNAME=<user_name> --build-arg UID="$(id -u)" -t yocto-img .
 ./docker.run -u <user_name> -s $(pwd)/workspace -i yocto-img /bin/bash
-sudo chown -R <user_name> workspace # Where the password is <user_name>
+
+# Use <user_name> for the password below
+sudo chown -R <user_name> workspace
 ```
 
 Where `<user_name>` is the username you want to create inside the docker container.
