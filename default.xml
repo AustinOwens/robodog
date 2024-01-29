@@ -16,6 +16,7 @@
     
     <project name="custom_ip_cores" path="workspace/custom_ip_cores"/>
     <project name="odrive_config" path="workspace/odrive_config"/>
+    <project name="zybo_z7-20_spi_slave_ref_design" path="workspace/dev/zybo_z7-20_spi_slave_ref_design"/>
     <project name="zybo_z7-20_hdmi_to_ps_ref_design" path="workspace/dev/zybo_z7-20_hdmi_to_ps_ref_design"/>
     <project name="zybo_z7-20_hdmi_echo_ref_design" path="workspace/dev/zybo_z7-20_hdmi_echo_ref_design"/>
     <project name="zybo_z7-20_led_switch_ref_design" path="workspace/dev/zybo_z7-20_led_switch_ref_design"/>
